@@ -75,4 +75,20 @@ describe 'client edits account' do
     expect(page).to have_content 'Senha é muito curto (mínimo: 6 caracteres)'
     expect(page).to have_content 'E-mail não é válido'
   end
+
+  it 'close account' do
+    client = create :client, name: 'Kilder Costa', password: 'password123', email: 'costa.kilder@gmail.com'
+
+    login_as client
+    visit root_path
+    click_on 'Editar dados da conta'
+    click_on 'Encerrar minha conta'
+    client.reload
+
+    expect(client.persisted?).to eq true
+    expect(client).to be_closed_account
+    expect(page).to have_current_path root_path
+    expect(page).not_to have_content('Kilder Costa')
+    expect(page).to have_link('Entrar')
+  end
 end
