@@ -28,4 +28,16 @@ describe 'client signs in' do
     expect(page).to have_content 'E-mail ou senha inválidos.'
     expect(page).not_to have_content 'Autenticação efetuada com sucesso.'
   end
+
+  it 'with incorrect fields' do
+    create :client, name: 'Kilder Costa', password: 'password123', email: 'costa.kilder@gmail.com'
+
+    visit new_client_session_path
+    fill_in 'E-mail', with: 'kilderexample.com'
+    fill_in 'Senha', with: '123'
+    find('.actions').click_on 'Entrar'
+
+    expect(page).not_to have_content 'Autenticação efetuada com sucesso.'
+    expect(page).to have_content 'E-mail ou senha inválidos.'
+  end
 end
