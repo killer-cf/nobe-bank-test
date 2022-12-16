@@ -1,6 +1,7 @@
 pt-BR:
   log_in: Entrar
   sign up: Registrar-se
+  save: Salvar
   activerecord:
     attributes:
       client:

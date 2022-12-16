@@ -1,16 +1,16 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.email_field :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
     <%= f.label :cpf_number %><br />
-    <%= f.email_field :cpf_number %>
+    <%= f.text_field :cpf_number %>
   </div>
 
   <div class="field">

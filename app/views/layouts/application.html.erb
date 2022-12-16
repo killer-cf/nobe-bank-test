@@ -20,6 +20,9 @@
           <div>
             <%= button_to 'Encerrar sessão', destroy_client_session_path, method: 'delete' %>
           </div>
+          <div>
+            <%= link_to 'Editar dados da conta', edit_client_registration_path %>
+          </div>
         <% else %>
           <div>
             <%= link_to 'Entrar', new_client_session_path %>
