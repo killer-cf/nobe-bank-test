@@ -14,11 +14,17 @@
     <header>
       <nav>
         <div>
-          <%= link_to 'Entrar', new_client_session_path unless current_client%>
-        </div>
-        <div>
           <%= current_client.name if current_client%>
         </div>
+        <% if current_client %>
+          <div>
+            <%= button_to 'Encerrar sessão', destroy_client_session_path, method: 'delete' %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to 'Entrar', new_client_session_path %>
+          </div>
+        <% end %>
       </nav>
     </header>
     <main>
