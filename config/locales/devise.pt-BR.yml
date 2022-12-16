@@ -1,5 +1,6 @@
 pt-BR:
   log_in: Entrar
+  sign up: Registrar-se
   activerecord:
     attributes:
       client:
@@ -17,7 +18,7 @@ pt-BR:
         last_sign_in_ip: Último IP de acesso
         locked_at: Bloqueado em
         password: Senha
-        password_confirmation: Confirme sua senha
+        password_confirmation: Confirmar senha
         remember_created_at: Lembrar criado em
         remember_me: Lembre-se de mim
         reset_password_sent_at: Resetar senha enviado em
@@ -26,6 +27,8 @@ pt-BR:
         unconfirmed_email: E-mail não confirmado
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
+        name: Nome
+        cpf_number: CPF
     models:
       user:
         one: Usuário
