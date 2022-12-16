@@ -11,8 +11,20 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <div>
+          <%= link_to 'Entrar', new_client_session_path unless current_client%>
+        </div>
+        <div>
+          <%= current_client.name if current_client%>
+        </div>
+      </nav>
+    </header>
+    <main>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    </main>
   </body>
 </html>
