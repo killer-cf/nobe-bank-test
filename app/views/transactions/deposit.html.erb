@@ -1,0 +1,16 @@
+<section>
+  <div>
+    <%= form_with url: send_deposit_path, method: :patch do |form| %>
+      <%= form.label :name, 'Nome' %>
+      <%= form.text_field :name %>
+
+      <%= form.label :cpf, 'CPF' %>
+      <%= form.text_field :cpf %>
+
+      <%= form.label :value, 'Valor' %>
+      <%= form.number_field :value %>
+
+      <%= form.submit "CONFIRMAR" %>
+    <% end %>
+  </div>
+</section>

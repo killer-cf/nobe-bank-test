@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     post 'close_account', to: 'clients/registrations#close_account'
   end
   root to: 'home#index'
+  get 'deposit', to: 'transactions#deposit'
+  patch 'send_deposit', to: 'transactions#send_deposit'
 end
