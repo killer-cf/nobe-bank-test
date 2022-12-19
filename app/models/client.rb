@@ -6,7 +6,7 @@ class Client < ApplicationRecord
 
   enum status: { closed_account: 0, active: 1 }
 
-  before_create :name_to_upcase
+  before_save :name_to_upcase
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable

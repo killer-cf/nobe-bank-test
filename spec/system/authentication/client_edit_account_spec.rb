@@ -17,7 +17,7 @@ describe 'client edits account' do
     client.reload
 
     expect(page).to have_current_path root_path
-    expect(page).to have_content 'Kilder Costa Filho'
+    expect(page).to have_content 'Kilder Costa Filho'.upcase
     expect(client.email).to eq 'kilder123@example.com'
     expect(client.cpf_number).to eq '12345678902'
   end
