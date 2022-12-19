@@ -6,6 +6,14 @@ class Client < ApplicationRecord
 
   enum status: { closed_account: 0, active: 1 }
 
+  before_create :name_to_upcase
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
+
+  private
+
+  def name_to_upcase
+    self.name = name.upcase if name
+  end
 end

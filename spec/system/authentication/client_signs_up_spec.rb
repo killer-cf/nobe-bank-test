@@ -13,7 +13,7 @@ describe 'client signs up' do
 
     expect(page).to have_current_path root_path
     expect(page).to have_button 'Encerrar sessão'
-    expect(page).to have_content 'Kilder Costa'
+    expect(page).to have_content 'Kilder Costa'.upcase
     expect(page).not_to have_link 'Entrar'
   end
 

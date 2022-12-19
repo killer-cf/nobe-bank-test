@@ -11,7 +11,7 @@ describe 'client signs in' do
     find('.actions').click_on 'Entrar'
 
     expect(page).to have_current_path root_path
-    expect(page).to have_content('Kilder Costa')
+    expect(page).to have_content('Kilder Costa'.upcase)
     expect(page).not_to have_link('Entrar')
     expect(page).to have_content('Autenticação efetuada com sucesso.')
   end
