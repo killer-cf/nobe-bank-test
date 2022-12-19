@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'deposit', to: 'transactions#deposit'
   patch 'send_deposit', to: 'transactions#send_deposit'
+  get 'withdraw', to: 'transactions#withdraw'
+  patch 'send_withdraw', to: 'transactions#send_withdraw'
 end

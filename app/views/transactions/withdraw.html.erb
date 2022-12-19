@@ -1,0 +1,11 @@
+<section>
+  <div>
+    <%= form_with url: send_withdraw_path, method: :patch do |form| %>
+      <h2>Selecione o valor para saque</h2>
+      <%= form.label :value, 'Valor' %>
+      <%= form.number_field :value %>
+
+      <%= form.submit "CONFIRMAR" %>
+    <% end %>
+  </div>
+</section>
