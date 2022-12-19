@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_16_124746) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_125722) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "cpf_number"
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_124746) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "cash", default: "0.0"
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
