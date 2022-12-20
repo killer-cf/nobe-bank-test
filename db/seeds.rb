@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+client = Client.create!(name: 'Kilder Costa', password: 'password123', cpf_number: '32345678901', email: 'costa.kilder321@gmail.com', cash: 1000)
+client2 = Client.create!(name: 'Josue filho', password: 'password123', cpf_number: '12345678901', email: 'kilder123@gmail.com', cash: 2000)
+
+AccountStatement.create!(name: 'Déposito', move_date: 3.day.ago, moved_value: 3300, client:)
+AccountStatement.create!(name: 'Déposito', move_date: 3.day.ago, moved_value: 2300, client:)
+AccountStatement.create!(name: 'Saque', move_date: 2.day.ago, moved_value: -100, client:)
+AccountStatement.create!(name: 'Saque', move_date: 1.day.ago, moved_value: -500, client:)
+AccountStatement.create!(name: 'Déposito', move_date: Date.today, moved_value: 1000, client:)
+AccountStatement.create!(name: 'Taxa de transferência', moved_value: 15, move_date: Date.today, client:)
+AccountStatement.create!(name: 'Transferência', moved_value: 700, move_date: Date.today, from: client2.name, client:)
+
+AccountStatement.create!(name: 'Déposito', move_date: 3.day.ago, moved_value: 5300, client: client2)
+AccountStatement.create!(name: 'Saque', move_date: 2.day.ago, moved_value: -100, client: client2)
+AccountStatement.create!(name: 'Saque', move_date: 1.day.ago, moved_value: -500, client: client2)
+AccountStatement.create!(name: 'Saque', move_date: 3.day.ago, moved_value: 2000, client: client2)
+AccountStatement.create!(name: 'Déposito', move_date: 2.day.ago, moved_value: -600, client: client2)
+AccountStatement.create!(name: 'Transferência', moved_value: 15, move_date: Date.today, client: client2)
+AccountStatement.create!(name: 'Transferência', moved_value: 500, move_date: Date.today, from: client.name, client: client2)
