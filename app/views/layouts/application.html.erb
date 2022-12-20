@@ -16,17 +16,20 @@
       <nav class='px-5 flex items-center space-x-5'>
         <h1 class='text-3xl font-bold'>Nobe Bank</h1>
         <div>
-          <%= current_client.name if current_client%>
+            <%= link_to 'Home', root_path %>
+          </div>
+        <div>
+          <p class='font-bold text-green-800'><%= current_client.name if current_client%></p>
         </div>
         <% if current_client %>
           <div>
-            <h3>Saldo: R$ <%= number_with_precision(current_client.cash, precision: 2)%></h3>
-          </div>
-          <div>
-            <%= button_to 'Encerrar sessão', destroy_client_session_path, method: 'delete' %>
+            <h3 class='font-bold text-green-800'>Saldo: R$ <%= number_with_precision(current_client.cash, precision: 2)%></h3>
           </div>
           <div>
             <%= link_to 'Editar dados da conta', edit_client_registration_path %>
+          </div>
+          <div>
+            <%= button_to 'Encerrar sessão', destroy_client_session_path, method: 'delete', class:'font-semibold text-red-800' %>
           </div>
         <% else %>
           <div>

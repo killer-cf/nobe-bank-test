@@ -16,6 +16,9 @@
   .btn-tertiary{
     @apply  bg-green-800 hover:bg-green-900 text-white font-semibold my-2 px-3 py-1 rounded-xl cursor-pointer text-lg;
   }
+  .field{
+    @apply flex flex-col space-y-2 my-1
+  }
   a{
     @apply font-semibold text-blue-800 
   }
