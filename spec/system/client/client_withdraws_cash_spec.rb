@@ -2,8 +2,6 @@ require 'rails_helper'
 
 describe 'client withdraws cash' do
   it 'and is not authenticated' do
-    create :client, name: 'Kilder Costa', cpf_number: '12345678901', email: 'costa.kilder@gmail.com', cash: 300
-
     visit root_path
     click_on 'Saque'
 

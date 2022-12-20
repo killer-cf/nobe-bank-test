@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   patch 'send_deposit', to: 'transactions#send_deposit'
   get 'withdraw', to: 'transactions#withdraw'
   patch 'send_withdraw', to: 'transactions#send_withdraw'
+  get 'transfer', to: 'transactions#transfer'
+  patch 'send_transfer', to: 'transactions#send_transfer'
 
   resources :account_statements, only: :index do
     get 'filter', on: :collection

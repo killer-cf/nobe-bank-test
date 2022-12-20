@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_200642) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_20_133956) do
   create_table "account_statements", force: :cascade do |t|
     t.string "name"
     t.decimal "moved_value"
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_200642) do
     t.integer "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "to"
+    t.string "from"
     t.index ["client_id"], name: "index_account_statements_on_client_id"
   end
 
