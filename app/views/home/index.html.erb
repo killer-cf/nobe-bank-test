@@ -1,26 +1,25 @@
 <main>
   <div>
-    <h1>Nobe Bank</h1>
-    <div>
+    <div class='flex space-x-3 p-10'>
       <div>
-        <%= link_to 'Dépositos', deposit_path %>
+        <%= link_to 'Dépositos', deposit_path, class: 'btn-primary' %>
       </div>
       <div>
-        <%= link_to 'Saque', withdraw_path %>
+        <%= link_to 'Saque', withdraw_path, class: 'btn-secondary' %>
       </div>
       <div>
-        <%= link_to 'Transferências', transfer_path %>
+        <%= link_to 'Transferências', transfer_path, class: 'btn-tertiary' %>
       </div>
     </div>
     <div>
-      <%= form_with url: filter_account_statements_path, method: :get do |form| %>
+      <%= form_with url: filter_account_statements_path, method: :get, html: {class: 'flex flex-col w-[400px]'} do |form| %>
         <%= form.label :initial_date, 'Data Inicial' %>
         <%= form.date_field :initial_date %>
 
         <%= form.label :end_date, 'Data Final' %>
         <%= form.date_field :end_date %>
 
-        <%= form.submit "Solicitar extrato" %>
+        <%= form.submit "Solicitar extrato", class: 'btn-primary' %>
       <% end %>
     </div>
   </div>

@@ -13,7 +13,8 @@
 
   <body>
     <header>
-      <nav>
+      <nav class='px-5 flex items-center space-x-5'>
+        <h1 class='text-3xl font-bold'>Nobe Bank</h1>
         <div>
           <%= current_client.name if current_client%>
         </div>
@@ -37,7 +38,7 @@
         <% end %>
       </nav>
     </header>
-    <main>
+    <main class='p-[2%]'>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

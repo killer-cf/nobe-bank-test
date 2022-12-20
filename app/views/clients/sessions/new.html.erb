@@ -1,6 +1,6 @@
-<h2>Log in</h2>
+<h1 class='text-2xl font-bold'>Entrar</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: {class: 'flex flex-col w-[400px]'}) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -19,8 +19,8 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit t("log_in") %>
+    <%= f.submit t("log_in"), class: 'btn-primary' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "clients/shared/links" %>

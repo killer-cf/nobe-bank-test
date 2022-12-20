@@ -1,6 +1,6 @@
-<h2>Sign up</h2>
+<h1 class='text-2xl font-bold'>Criar Conta</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: {class: 'flex flex-col w-[400px]'}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -32,8 +32,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t("sign up") %>
+    <%= f.submit t("sign up"), class: 'btn-primary' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "clients/shared/links" %>
