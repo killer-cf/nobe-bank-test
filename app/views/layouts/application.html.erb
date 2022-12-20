@@ -18,6 +18,9 @@
         </div>
         <% if current_client %>
           <div>
+            <h3>Saldo: R$ <%= number_with_precision(current_client.cash, precision: 2)%></h3>
+          </div>
+          <div>
             <%= button_to 'Encerrar sessão', destroy_client_session_path, method: 'delete' %>
           </div>
           <div>
