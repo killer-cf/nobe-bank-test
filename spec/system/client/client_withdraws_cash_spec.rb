@@ -23,6 +23,9 @@ describe 'client withdraws cash' do
     expect(page).to have_current_path root_path
     expect(page).to have_content 'Saque realizado com sucesso'
     expect(client.cash).to eq 100
+    expect(client.account_statements.last.name).to eq 'Saque'
+    expect(client.account_statements.last.moved_value).to eq '-200'.to_i
+    expect(client.account_statements.last.move_date).to eq Date.today
   end
 
   it 'negative value' do

@@ -15,6 +15,9 @@ describe 'client deposits cash' do
     expect(page).to have_current_path root_path
     expect(page).to have_content 'Déposito realizado com sucesso'
     expect(client.cash).to eq 200
+    expect(client.account_statements.last.name).to eq 'Déposito'
+    expect(client.account_statements.last.moved_value).to eq 200
+    expect(client.account_statements.last.move_date).to eq Date.today
   end
 
   it 'negative value' do

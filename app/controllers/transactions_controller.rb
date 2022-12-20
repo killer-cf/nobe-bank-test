@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
     client = Client.find_by(name: params[:name].upcase, cpf_number: params[:cpf])
     if client
       client.cash += value
+      AccountStatement.create!(name: 'Déposito', moved_value: value, move_date: Date.today, client:)
       redirect_to(root_path, notice: 'Déposito realizado com sucesso') if client.save
     else
       flash.now[:alert] = 'Dados incorretos ou cliente inexistente'
@@ -26,6 +27,7 @@ class TransactionsController < ApplicationController
     if current_client.cash >= value
       current_client.cash -= value
       current_client.save
+      AccountStatement.create!(name: 'Saque', moved_value: -value, move_date: Date.today, client: current_client)
       redirect_to root_path, notice: 'Saque realizado com sucesso'
     else
       flash.now[:alert] = 'Saldo insuficiênte'

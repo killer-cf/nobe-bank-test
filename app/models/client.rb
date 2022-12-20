@@ -8,7 +8,7 @@ class Client < ApplicationRecord
 
   before_save :name_to_upcase
 
-  has_one :account_statement, dependent: :destroy
+  has_many :account_statements, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
