@@ -1,24 +1,53 @@
-# README
+# Nobe Bank
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Como executar o projeto
 
-Things you may want to cover:
+### 1. Execute a configuração inicial
 
-* Ruby version
+```text
+bin/setup
+```
 
-* System dependencies
+```text
+rails db:seed
+```
 
-* Configuration
+### 2. Execute a aplicação em sua máquina( use no lugar de 'rails s')
 
-* Database creation
+```text
+bin/dev
+```
 
-* Database initialization
+### 3. Acesse este endereço em seu navegador
 
-* How to run the test suite
+```text
+http://localhost:3000/
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+</br>
 
-* Deployment instructions
+## Como executar os testes
 
-* ...
+```text
+rspec
+```
+
+</br>
+
+## Dependências do sistema
+
+- ruby (3.1.0)
+
+### Testes
+
+- gem 'rspec-rails'
+- gem 'factory_bot_rails'
+- gem 'shoulda-matchers'
+
+### Estilização
+
+- gem 'tailwindcss-rails'
+
+### Autenticação e autorização
+
+- gem 'devise'
