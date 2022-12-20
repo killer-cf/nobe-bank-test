@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_125722) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_200642) do
+  create_table "account_statements", force: :cascade do |t|
+    t.string "name"
+    t.decimal "moved_value"
+    t.date "move_date"
+    t.integer "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_account_statements_on_client_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "cpf_number"
@@ -27,4 +37,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_125722) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "account_statements", "clients"
 end

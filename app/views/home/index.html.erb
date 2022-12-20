@@ -2,10 +2,23 @@
   <div>
     <h1>Nobe Bank</h1>
     <div>
-      <%= link_to 'Dépositos', deposit_path %>
+      <div>
+        <%= link_to 'Dépositos', deposit_path %>
+      </div>
+      <div>
+        <%= link_to 'Saque', withdraw_path %>
+      </div>
     </div>
     <div>
-      <%= link_to 'Saque', withdraw_path %>
+      <%= form_with url: filter_account_statements_path, method: :get do |form| %>
+        <%= form.label :initial_date, 'Data Inicial' %>
+        <%= form.date_field :initial_date %>
+
+        <%= form.label :end_date, 'Data Final' %>
+        <%= form.date_field :end_date %>
+
+        <%= form.submit "Solicitar extrato" %>
+      <% end %>
     </div>
   </div>
 </main>
