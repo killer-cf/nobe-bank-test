@@ -34,10 +34,10 @@ describe 'client requests statement' do
     fill_in 'Data Final', with: 1.day.ago
     click_on 'Solicitar extrato'
 
-    expect(page).to have_content "Déposito | R$ 3.300,00 | id: #{stt1.id} | Data: #{stt1.move_date}"
-    expect(page).to have_content "Saque | R$ -100,00 | id: #{stt2.id} | Data: #{stt2.move_date}"
-    expect(page).to have_content "Saque | R$ -500,00 | id: #{stt3.id} | Data: #{stt3.move_date}"
-    expect(page).not_to have_content "Déposito | R$ 1.000,00 | id: #{stt4.id} | Data: #{stt4.move_date}"
+    expect(page).to have_content "Déposito | R$ 3.300,00 | id: #{stt1.id} | Data: #{I18n.l(stt1.move_date)}"
+    expect(page).to have_content "Saque | R$ -100,00 | id: #{stt2.id} | Data: #{I18n.l(stt2.move_date)}"
+    expect(page).to have_content "Saque | R$ -500,00 | id: #{stt3.id} | Data: #{I18n.l(stt3.move_date)}"
+    expect(page).not_to have_content "Déposito | R$ 1.000,00 | id: #{stt4.id} | Data: #{I18n.l(stt4.move_date)}"
   end
 
   it 'and not sees statements of another clients' do
@@ -56,12 +56,12 @@ describe 'client requests statement' do
     fill_in 'Data Final', with: 1.day.ago
     click_on 'Solicitar extrato'
 
-    expect(page).to have_content "Déposito | R$ 3.300,00 | id: #{stt1.id} | Data: #{stt1.move_date}"
-    expect(page).to have_content "Saque | R$ -100,00 | id: #{stt2.id} | Data: #{stt2.move_date}"
-    expect(page).to have_content "Saque | R$ -500,00 | id: #{stt3.id} | Data: #{stt3.move_date}"
-    expect(page).not_to have_content "Déposito | R$ 1.000,00 | id: #{stt4.id} | Data: #{stt4.move_date}"
-    expect(page).not_to have_content "Saque | R$ 2.000,00 | id: #{stt5.id} | Data: #{stt5.move_date}"
-    expect(page).not_to have_content "Déposito | R$ 600,00 | id: #{stt6.id} | Data: #{stt6.move_date}"
+    expect(page).to have_content "Déposito | R$ 3.300,00 | id: #{stt1.id} | Data: #{I18n.l(stt1.move_date)}"
+    expect(page).to have_content "Saque | R$ -100,00 | id: #{stt2.id} | Data: #{I18n.l(stt2.move_date)}"
+    expect(page).to have_content "Saque | R$ -500,00 | id: #{stt3.id} | Data: #{I18n.l(stt3.move_date)}"
+    expect(page).not_to have_content "Déposito | R$ 1.000,00 | id: #{stt4.id} | Data: #{I18n.l(stt4.move_date)}"
+    expect(page).not_to have_content "Saque | R$ 2.000,00 | id: #{stt5.id} | Data: #{I18n.l(stt5.move_date)}"
+    expect(page).not_to have_content "Déposito | R$ 600,00 | id: #{stt6.id} | Data: #{I18n.l(stt6.move_date)}"
   end
 
   it 'and theres no results' do

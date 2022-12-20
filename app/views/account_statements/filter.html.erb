@@ -1,10 +1,10 @@
 <section>
   <div>
     <% unless @statements.empty? %>
-      <%= @statements.each do |statement| %>
+      <% @statements.each do |statement| %>
         <div>
           <p><%= statement.name %>  |  R$ <%= number_with_precision(statement.moved_value, precision: 2) %>  |  id: 
-          <%= statement.id %>  |  Data: <%= statement.move_date %></p>
+          <%= statement.id %>  |  Data: <%=l statement.move_date %></p>
         </div>
       <% end %>
     <% else %>
