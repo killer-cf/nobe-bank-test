@@ -24,7 +24,7 @@ describe 'client makes a transfer' do
 
     expect(page).to have_current_path root_path
     expect(page).to have_content 'Transferência realizado com sucesso'
-    expect(client.cash).to eq 900
+    expect(client.cash).to eq 900 - get_hate_value(1100)
     expect(client2.cash).to eq 1300
     expect(client.account_statements.last.name).to eq 'Transferência'
     expect(client.account_statements.last.to).to eq 'Joca Silva Moura'.upcase
@@ -52,7 +52,7 @@ describe 'client makes a transfer' do
 
     expect(page).to have_current_path root_path
     expect(page).to have_content 'Transferência realizado com sucesso'
-    expect(client.cash).to eq 900
+    expect(client.cash).to eq 900 - get_hate_value(1100)
     expect(client2.cash).to eq 1300
   end
 
@@ -74,4 +74,9 @@ describe 'client makes a transfer' do
     expect(client.cash).to eq 1000
     expect(client2.cash).to eq 200
   end
+end
+
+def get_hate_value(transfer_value)
+  hate_value = Time.now.on_weekday? && (9..18).include?(DateTime.now.hour) ? 5 : 7
+  hate_value + transfer_value >= 1000 ? 10 : 0
 end

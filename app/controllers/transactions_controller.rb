@@ -41,7 +41,8 @@ class TransactionsController < ApplicationController
     value *= -1 if value.negative?
 
     client = Client.find_by(name: params[:name].upcase, cpf_number: params[:cpf])
-    if client && current_client.cash >= value
+    hate_value = get_hate_value(value)
+    if client && current_client.cash >= value + hate_value
       transact('Transferência', client, value)
     else
       flash.now[:alert] = current_client.cash >= value ? 'Dados incorretos ou cliente inexistente' : 'Você não tem dinheiro suficiente'
@@ -49,11 +50,21 @@ class TransactionsController < ApplicationController
     end
   end
 
+  private
+
   def transact(name, client, value)
+    hate_value = get_hate_value(value)
     client.cash += value
-    current_client.cash -= value
+    current_client.cash -= value + hate_value
+    AccountStatement.create!(name: 'Taxa de transferência', moved_value: hate_value, move_date: Date.today,
+                             client: current_client)
     AccountStatement.create!(name:, moved_value: value, move_date: Date.today, from: current_client.name, client:)
     AccountStatement.create!(name:, moved_value: -value, move_date: Date.today, to: client.name, client: current_client)
     redirect_to(root_path, notice: "#{name} realizado com sucesso") if client.save && current_client.save
+  end
+
+  def get_hate_value(transfer_value)
+    hate_value = Time.now.on_weekday? && (9..18).include?(DateTime.now.hour) ? 5 : 7
+    hate_value + transfer_value >= 1000 ? 10 : 0
   end
 end
